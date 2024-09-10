@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29/08/2024 às 14:22
+-- Tempo de geração: 10/09/2024 às 17:08
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -134,8 +134,11 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`pro_id`, `pro_nome`, `pro_preco`, `pro_quantidade`, `pro_limitacao`, `pro_path1`, `pro_path2`, `sec_id`) VALUES
-(1, 'Maçã', 5.00, 100, 'Nenhuma', '', '', 1),
-(2, 'Banana', 7.00, 100, 'Nenhuma', './imgProds/banana.jpg', './imgProds/banana2.jpg', 1);
+(1, 'Maçã', 5.00, 130, 'Nenhuma', '', '', 1),
+(2, 'Banana', 7.00, 1099, 'Nenhuma', './imgProds/banana.jpg', './imgProds/banana2.jpg', 1),
+(3, 'Ovo Branco', 10.00, 40, 'Nutrientes', './imgProds/ovos.png', './imgProds/ovos.2.jpg', 3),
+(4, 'Ovo Caipira', 12.00, 50, 'Alergia ao ovo e Veganos', './imgProds/ovocaipira2.avif', './imgProds/ovoscaipira.webp', 3),
+(5, 'Ovos de codorna ', 15.00, 35, 'Alergia ao ovo e Veganos', './imgProds/ovosdecodorna.jpg', './imgProds/ovodecodorna2.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -167,7 +170,8 @@ CREATE TABLE `secao` (
 
 INSERT INTO `secao` (`sec_id`, `sec_nome`) VALUES
 (1, 'Frutas'),
-(2, 'Laticíneos');
+(2, 'Laticíneos'),
+(3, 'Ovos');
 
 --
 -- Índices para tabelas despejadas
@@ -254,7 +258,7 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `reclamacoes`
@@ -266,7 +270,7 @@ ALTER TABLE `reclamacoes`
 -- AUTO_INCREMENT de tabela `secao`
 --
 ALTER TABLE `secao`
-  MODIFY `sec_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `sec_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restrições para tabelas despejadas
