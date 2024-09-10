@@ -174,8 +174,11 @@ select{
 .produto{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    width: 500px;
+    width: 25%;
+    aspect-ratio: 1 / 1;
     background-color: var(--verde-escuro);
     border-radius: 20px;
 }
@@ -183,21 +186,31 @@ select{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    align-content: space-between;
-    justify-content: center;
-    padding-left: 10%;
-    padding-right: 10%;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: 10%;
     padding-top: 5%;
     padding-bottom: 5%;
     color: var(--branco);
 }
-.produto img{
-    width: 20%;
-    height: 100px;
+.produto .imagens{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
 }
-.produto h2{
+.produto img{
+    width: 40%;
+    aspect-ratio: 1 /1;
+    border-radius: 20px;
+}
+.produto h3{
+    font-size: 1.6em;
     font-family: var(--destaque);
 }
+.produto p{
+    font-size: 1.1em;
+}
+
 .img-Prods{
     display: flex;
     flex-direction: row;
