@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NutriVida - Gerenciamento de produtos</title>
+    <title>NutriVida - Tabela de produtos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,7 +33,7 @@
             </tr>
             <?php 
             include('conexao.php');
-            $query = selecionar('produto',['pro_id','pro_nome','pro_preco','pro_quantidade','pro_limitacao','pro_path1','pro_path2','sec_id'],'');
+            $query = selecionar('produto',['pro_id','pro_nome','pro_preco','pro_quantidade','pro_limitacao','pro_path1','pro_path2','sec_id'],'ORDER BY pro_nome');
             
             while($dados = mysqli_fetch_array($query)){
                 $id = $dados[0];

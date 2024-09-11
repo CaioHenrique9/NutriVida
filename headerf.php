@@ -12,7 +12,7 @@
                 $nome = $_SESSION['nome'];
                 $telefone = $_SESSION['telefone'];
                 $email = $_SESSION['email'];
-                echo "<a href=\"info.php\" id=\"link-login\" title=\"Clique aqui para fazer login\">".strtok($nome," ")."</a>";
+                echo "<a href=\"info.php\" id=\"link-login\" title=\"Clique aqui para ver suas informações\">".strtok($nome," ")."</a>";
             }
             ?>
         </div>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10/09/2024 às 17:08
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Tempo de geração: 11/09/2024 às 21:26
+-- Versão do servidor: 10.4.25-MariaDB
+-- Versão do PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `cliente` (
   `cli_email` varchar(140) NOT NULL,
   `cli_telefone` varchar(14) NOT NULL,
   `cli_senha` varchar(16) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Despejando dados para a tabela `cliente`
@@ -54,7 +54,7 @@ CREATE TABLE `funcionario` (
   `Fun_Email` varchar(140) NOT NULL,
   `Fun_Telefone` varchar(14) NOT NULL,
   `fun_senha` varchar(16) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Despejando dados para a tabela `funcionario`
@@ -74,7 +74,7 @@ CREATE TABLE `item` (
   `ite_quantidade` int(11) NOT NULL,
   `ped_id` int(11) NOT NULL,
   `pro_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `item`
@@ -103,7 +103,7 @@ CREATE TABLE `pedido` (
   `ped_endereco` varchar(140) DEFAULT NULL,
   `cli_id` int(11) NOT NULL,
   `fun_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `pedido`
@@ -127,18 +127,18 @@ CREATE TABLE `produto` (
   `pro_path1` varchar(256) NOT NULL,
   `pro_path2` varchar(256) NOT NULL,
   `sec_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `produto`
 --
 
 INSERT INTO `produto` (`pro_id`, `pro_nome`, `pro_preco`, `pro_quantidade`, `pro_limitacao`, `pro_path1`, `pro_path2`, `sec_id`) VALUES
-(1, 'Maçã', 5.00, 130, 'Nenhuma', '', '', 1),
-(2, 'Banana', 7.00, 1099, 'Nenhuma', './imgProds/banana.jpg', './imgProds/banana2.jpg', 1),
-(3, 'Ovo Branco', 10.00, 40, 'Nutrientes', './imgProds/ovos.png', './imgProds/ovos.2.jpg', 3),
-(4, 'Ovo Caipira', 12.00, 50, 'Alergia ao ovo e Veganos', './imgProds/ovocaipira2.avif', './imgProds/ovoscaipira.webp', 3),
-(5, 'Ovos de codorna ', 15.00, 35, 'Alergia ao ovo e Veganos', './imgProds/ovosdecodorna.jpg', './imgProds/ovodecodorna2.jpg', 3);
+(1, 'Maçã', '5.00', 130, 'Nenhuma', './ImgProds/maca1.jpeg', './ImgProds/maca2.jpeg', 1),
+(2, 'Banana', '7.00', 1099, 'Nenhuma', './imgProds/banana.jpg', './imgProds/banana2.jpg', 1),
+(3, 'Ovo Branco', '10.00', 40, 'Nutrientes', './imgProds/ovos.png', './imgProds/ovos.2.jpg', 3),
+(4, 'Ovo Caipira', '12.00', 50, 'Alergia ao ovo e Veganos', './imgProds/ovocaipira2.avif', './imgProds/ovoscaipira.webp', 3),
+(5, 'Ovos de codorna ', '15.00', 35, 'Alergia ao ovo e Veganos', './imgProds/ovosdecodorna.jpg', './imgProds/ovodecodorna2.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -151,7 +151,7 @@ CREATE TABLE `reclamacoes` (
   `rec_texto` text NOT NULL,
   `cli_id` int(11) NOT NULL,
   `fun_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -162,7 +162,7 @@ CREATE TABLE `reclamacoes` (
 CREATE TABLE `secao` (
   `sec_id` int(11) NOT NULL,
   `sec_nome` varchar(140) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Despejando dados para a tabela `secao`

@@ -92,7 +92,7 @@
                     <select name="produto" id="">
                     <?php 
                     
-                    $query = selecionar('produto',['pro_id','pro_nome'],'');
+                    $query = selecionar('produto',['pro_id','pro_nome'],'ORDER BY pro_nome');
                     while ($dados = mysqli_fetch_array($query)) {
                         $id = $dados[0];
                         $nome = $dados[1];
