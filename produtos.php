@@ -17,13 +17,23 @@
         <section id="container">
             <?php
                 include('conexao.php');
-                $query = selecionar('produto',['pro_id','pro_nome','pro_preco','pro_quantidade','pro_limitacao','pro_path1','pro_path2','sec_id'],'ORDER BY sec_id');
+                $query = selecionar('secao',['sec_id','sec_nome'],"");
                 while($dados = mysqli_fetch_array($query)){
-                    $nome = $dados[1];
-                    $preco = $dados[2];
-                    $quantidade = $dados[3];
-                    $img1 = $dados[5];
-                    $img2 = $dados[6];
+                $idSecao = $dados[0];
+                $query2 = selecionar('produto',['pro_id','pro_nome','pro_preco','pro_quantidade','pro_path1','pro_path2','sec_id'],"WHERE sec_id = '$idSecao' ORDER BY sec_id");
+                if(mysqli_num_rows($query2) != 0){
+                $nomeSecao = $dados[1];
+                echo "<h2>$nomeSecao</h2>";
+                echo "<section class=\"produtos\">";
+                $query2 = selecionar('produto',['pro_id','pro_nome','pro_preco','pro_quantidade','pro_path1','pro_path2','sec_id'],"WHERE sec_id = '$idSecao' ORDER BY sec_id");
+                $dados2 = mysqli_fetch_array($query2);
+                while($dados2 = mysqli_fetch_array($query2)){
+                    $nome = $dados2[1];
+                    $preco = $dados2[2];
+                    $quantidade = $dados2[3];
+                    $img1 = $dados2[4];
+                    $img2 = $dados2[5];
+                    $idsecao = $dados2[6];
                     echo "
                     <section class=\"produto\">
                     <h3>$nome</h3>
@@ -36,7 +46,9 @@
                     </section>
                     ";
                 }
-            
+                echo "</section>";
+                }
+                }
             ?>
         </section>
         <footer>NutriVida, &copy; 2024</footer>

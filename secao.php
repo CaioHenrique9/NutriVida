@@ -32,7 +32,7 @@
 
         mysqli_close($conexao);
 
-        header('Location: gprodutos.php')
+        header('Location: gprodutos.php');
         ?>
 
     </main>

@@ -45,10 +45,9 @@
             <div class=\"botoes\">
                 <a href=\"logout.php\"><button type=\"submit\">Logout</button></a>
                 <a href=\"update.php\"><button type=\"submit\">Alterar Dados</button></a>
-                <a href=\"delete.php\"><button type=\"submit\">Apagar conta</button></a>
-            </div>
-            ";
-        
+                ";if($_SESSION['tipo_de_usuario'] == 'cliente'){
+                 echo "<a href=\"delete.php\"><button type=\"submit\">Apagar conta</button></a>";
+                }      
         ?>
     </main>
         <footer>NutriVida, &copy; 2024</footer>

@@ -21,7 +21,14 @@
         $telefone = $_POST['telefone'];
         $senha = $_POST['senha'];
 
-        mysqli_query($conexao,"UPDATE cliente SET cli_nome='$nome',cli_email='$email',cli_telefone='$telefone',cli_senha='$senha' WHERE cli_id = '$id'");
+        if(empty($senha)){
+            $sql = "UPDATE cliente SET cli_nome='$nome',cli_email='$email',cli_telefone='$telefone' WHERE cli_id = '$id'";
+        }
+        else{
+            $sql = "UPDATE cliente SET cli_nome='$nome',cli_email='$email',cli_telefone='$telefone',cli_senha WHERE cli_id = '$id'";
+        }
+
+        mysqli_query($conexao,$sql);
 
         $_SESSION['nome'] = $nome;
         $_SESSION['email'] = $email;

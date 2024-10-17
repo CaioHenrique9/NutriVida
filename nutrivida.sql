@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11/09/2024 às 21:26
--- Versão do servidor: 10.4.25-MariaDB
--- Versão do PHP: 8.1.10
+-- Tempo de geração: 10/10/2024 às 14:18
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `cliente` (
   `cli_email` varchar(140) NOT NULL,
   `cli_telefone` varchar(14) NOT NULL,
   `cli_senha` varchar(16) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Despejando dados para a tabela `cliente`
@@ -54,7 +54,7 @@ CREATE TABLE `funcionario` (
   `Fun_Email` varchar(140) NOT NULL,
   `Fun_Telefone` varchar(14) NOT NULL,
   `fun_senha` varchar(16) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Despejando dados para a tabela `funcionario`
@@ -74,7 +74,7 @@ CREATE TABLE `item` (
   `ite_quantidade` int(11) NOT NULL,
   `ped_id` int(11) NOT NULL,
   `pro_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `item`
@@ -94,6 +94,17 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `limitacao`
+--
+
+CREATE TABLE `limitacao` (
+  `lim_id` int(11) NOT NULL,
+  `lim_nome` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `pedido`
 --
 
@@ -103,7 +114,7 @@ CREATE TABLE `pedido` (
   `ped_endereco` varchar(140) DEFAULT NULL,
   `cli_id` int(11) NOT NULL,
   `fun_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `pedido`
@@ -123,22 +134,33 @@ CREATE TABLE `produto` (
   `pro_nome` varchar(100) DEFAULT NULL,
   `pro_preco` decimal(6,2) DEFAULT NULL,
   `pro_quantidade` int(11) NOT NULL,
-  `pro_limitacao` varchar(100) DEFAULT NULL,
   `pro_path1` varchar(256) NOT NULL,
   `pro_path2` varchar(256) NOT NULL,
   `sec_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `produto`
 --
 
-INSERT INTO `produto` (`pro_id`, `pro_nome`, `pro_preco`, `pro_quantidade`, `pro_limitacao`, `pro_path1`, `pro_path2`, `sec_id`) VALUES
-(1, 'Maçã', '5.00', 130, 'Nenhuma', './ImgProds/maca1.jpeg', './ImgProds/maca2.jpeg', 1),
-(2, 'Banana', '7.00', 1099, 'Nenhuma', './imgProds/banana.jpg', './imgProds/banana2.jpg', 1),
-(3, 'Ovo Branco', '10.00', 40, 'Nutrientes', './imgProds/ovos.png', './imgProds/ovos.2.jpg', 3),
-(4, 'Ovo Caipira', '12.00', 50, 'Alergia ao ovo e Veganos', './imgProds/ovocaipira2.avif', './imgProds/ovoscaipira.webp', 3),
-(5, 'Ovos de codorna ', '15.00', 35, 'Alergia ao ovo e Veganos', './imgProds/ovosdecodorna.jpg', './imgProds/ovodecodorna2.jpg', 3);
+INSERT INTO `produto` (`pro_id`, `pro_nome`, `pro_preco`, `pro_quantidade`, `pro_path1`, `pro_path2`, `sec_id`) VALUES
+(1, 'Maçã', 5.00, 130, './ImgProds/maca1.jpeg', './ImgProds/maca2.jpeg', 1),
+(2, 'Banana', 7.00, 1099, './imgProds/banana.jpg', './imgProds/banana2.jpg', 1),
+(3, 'Ovo Branco', 10.00, 40, './imgProds/ovos.png', './imgProds/ovos.2.jpg', 3),
+(4, 'Ovo Caipira', 12.00, 50, './imgProds/ovocaipira2.avif', './imgProds/ovoscaipira.webp', 3),
+(5, 'Ovos de codorna ', 15.00, 35, './imgProds/ovosdecodorna.jpg', './imgProds/ovodecodorna2.jpg', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `prolim`
+--
+
+CREATE TABLE `prolim` (
+  `prl_id` int(11) NOT NULL,
+  `pro_id` int(11) NOT NULL,
+  `lim_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -151,7 +173,7 @@ CREATE TABLE `reclamacoes` (
   `rec_texto` text NOT NULL,
   `cli_id` int(11) NOT NULL,
   `fun_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -162,7 +184,7 @@ CREATE TABLE `reclamacoes` (
 CREATE TABLE `secao` (
   `sec_id` int(11) NOT NULL,
   `sec_nome` varchar(140) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Despejando dados para a tabela `secao`
@@ -198,6 +220,12 @@ ALTER TABLE `item`
   ADD KEY `pro_id` (`pro_id`);
 
 --
+-- Índices de tabela `limitacao`
+--
+ALTER TABLE `limitacao`
+  ADD PRIMARY KEY (`lim_id`);
+
+--
 -- Índices de tabela `pedido`
 --
 ALTER TABLE `pedido`
@@ -211,6 +239,14 @@ ALTER TABLE `pedido`
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`pro_id`),
   ADD KEY `sec_id` (`sec_id`);
+
+--
+-- Índices de tabela `prolim`
+--
+ALTER TABLE `prolim`
+  ADD PRIMARY KEY (`prl_id`),
+  ADD KEY `pro_id` (`pro_id`),
+  ADD KEY `lim_id` (`lim_id`);
 
 --
 -- Índices de tabela `reclamacoes`
@@ -249,6 +285,12 @@ ALTER TABLE `item`
   MODIFY `ite_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de tabela `limitacao`
+--
+ALTER TABLE `limitacao`
+  MODIFY `lim_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `pedido`
 --
 ALTER TABLE `pedido`
@@ -259,6 +301,12 @@ ALTER TABLE `pedido`
 --
 ALTER TABLE `produto`
   MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `prolim`
+--
+ALTER TABLE `prolim`
+  MODIFY `prl_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `reclamacoes`
@@ -295,6 +343,13 @@ ALTER TABLE `pedido`
 --
 ALTER TABLE `produto`
   ADD CONSTRAINT `produto_ibfk_1` FOREIGN KEY (`sec_id`) REFERENCES `secao` (`sec_id`);
+
+--
+-- Restrições para tabelas `prolim`
+--
+ALTER TABLE `prolim`
+  ADD CONSTRAINT `prolim_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `produto` (`pro_id`),
+  ADD CONSTRAINT `prolim_ibfk_2` FOREIGN KEY (`lim_id`) REFERENCES `limitacao` (`lim_id`);
 
 --
 -- Restrições para tabelas `reclamacoes`

@@ -171,6 +171,11 @@ select{
     display: flex;
     flex-direction: row;
 }
+.produtos{
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+}
 .produto{
     display: flex;
     flex-direction: column;
@@ -186,14 +191,22 @@ select{
 }
 #container{
     display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    align-content: space-between;
     width: 80%;
     margin-left: 10%;
     padding-top: 5%;
     padding-bottom: 5%;
     color: var(--branco);
+}
+#container h2{
+    background-color: var(--verde-escuro);
+    padding: 10px;
+    border-radius: 10px;
+    font-family: var(--destaque-forte);
 }
 .produto .imagens{
     display: flex;
