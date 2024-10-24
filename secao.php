@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NutriVida - Cadastrando Seção</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon">
 </head>
 <body>
     <?php 
@@ -32,7 +33,7 @@
 
         mysqli_close($conexao);
 
-        header('Location: gprodutos.php');
+        header('Location: gprodutos.php')
         ?>
 
     </main>

@@ -21,7 +21,7 @@
                 <li><a href="index.php">Home</a></li>
                 <li><a href="gprodutos.php">Gerenciar Produtos</a></li>
                 <li><a href="viewProds.php">Ver Produtos</a></li>
-                <li><a href="produtos.php">Ver pedidos</a></li>
+                <li><a href="gPromocoes.php">Gerenciar promoções</a></li>
                 <li><a href="cadastro.php">Ver Reclamações</a></li>
             </ul>
         </nav>
